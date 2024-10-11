@@ -24,11 +24,9 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 1. 修改脚本中的Wireguard 以下几项配置
 	```powershell
 	# wireguard 配置文件
-	$WireguardConfigFilePath = "D:\windows-wireguard-watchdog\company.conf" 
+	$WireguardConfigFilePath = "D:\windows-wireguard-watchdog\my.conf" 
 	# 检查IP变更时间间隔，秒
-	$IntervalSeconds = 10
-	# DNS服务器地址,不设置会从 wireguard 配置文件中读取DNS参数。我的域名是阿里的，dns9.hichina.com是阿里分配DNS服务器（阿里后台域名解析设置页面能看到这个地址），能立即检测到域名解析的ip变更
-	$DNS = "dns9.hichina.com" 
+	$IntervalSeconds = 30 
 	```
 	
 2. 用powershell终端管理员执行
@@ -60,7 +58,7 @@ D:\windows-wireguard-watchdog\nssm.exe remove MyWireGuardService
 ## 停止Wireguard服务
 
 ```shell
-wireguard /uninstalltunnelservice companytemp
+wireguard /uninstalltunnelservice mytemp
 ```
 
 替换`company`为你的Wireguard 配置文件名（company.conf不包含扩展名），或者任务管理器停止服务
