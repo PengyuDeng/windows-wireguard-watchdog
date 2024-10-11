@@ -1,5 +1,5 @@
 # wireguard 配置文件
-$WireguardConfigFilePath = "D:\windows-wireguard-watchdog\my.conf" 
+$WireguardConfigFilePath = "C:\windows-wireguard-watchdog\my.conf" 
 # 检查IP变更时间间隔
 $IntervalSeconds = 30
 

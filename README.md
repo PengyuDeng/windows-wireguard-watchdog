@@ -21,38 +21,35 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 
 让脚本以Windows服务方式运行 :
 
-1. 修改脚本中的Wireguard 以下几项配置
-	```powershell
-	# wireguard 配置文件
-	$WireguardConfigFilePath = "D:\windows-wireguard-watchdog\my.conf" 
-	# 检查IP变更时间间隔，秒
-	$IntervalSeconds = 30 
-	```
-	
-2. 用powershell终端管理员执行
-	```shell
-	D:\windows-wireguard-watchdog\nssm.exe install MyWireGuardService "powershell.exe" "-ExecutionPolicy Bypass -File D:\windows-wireguard-watchdog\keep_wireguard_alive.ps1"
-	```
-	替换 `C:\Users\admin\Desktop\keep_wireguard_alive.ps1` 为你自己的脚本文件路径。
-	
-3. 启动服务
-	```shell
-	D:\windows-wireguard-watchdog\nssm.exe start MyWireGuardService
-	```
-   现在脚本就作为Windows服务运行了，电脑重启开机Wiregurd会自动连接。你可以打开Wireguard的UI查看日志，任务管理器查看Wireguard的进程。
-   
+1. 把Windows-Wireguard-Watchdog放在C盘根路径下
+
+2. 把Wireguard配置文件名改为my.conf
+
+3. 用powershell终端管理员执行
+
+  ```shell
+  D:\windows-wireguard-watchdog\nssm.exe install MyWireGuardService "powershell.exe" "-ExecutionPolicy Bypass -File C:\windows-wireguard-watchdog\keep_wireguard_alive.ps1"
+  ```
+
+4. 启动服务
+  ```shell
+  D:\windows-wireguard-watchdog\nssm.exe start MyWireGuardService
+  ```
+  现在脚本就作为Windows服务运行了，电脑重启开机Wiregurd会自动连接。你可以打开Wireguard的UI查看日志，任务管理器查看Wireguard的进程。
+
+
 ## 关闭脚本服务
 
 停止服务
 
 ```shell
-D:\windows-wireguard-watchdog\nssm.exe stop MyWireGuardService
+C:\windows-wireguard-watchdog\nssm.exe stop MyWireGuardService
 ```
 
 移除服务
 
 ```shell
-D:\windows-wireguard-watchdog\nssm.exe remove MyWireGuardService
+C:\windows-wireguard-watchdog\nssm.exe remove MyWireGuardService
 ```
 
 ## 停止Wireguard服务
@@ -60,5 +57,3 @@ D:\windows-wireguard-watchdog\nssm.exe remove MyWireGuardService
 ```shell
 wireguard /uninstalltunnelservice mytemp
 ```
-
-替换`company`为你的Wireguard 配置文件名（company.conf不包含扩展名），或者任务管理器停止服务
