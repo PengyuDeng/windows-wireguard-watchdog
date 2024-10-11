@@ -64,28 +64,3 @@ wireguard /uninstalltunnelservice companytemp
 ```
 
 替换`company`为你的Wireguard 配置文件名（company.conf不包含扩展名），或者任务管理器停止服务
-
-## Wireguard客户端配置例子
-
-```
-
-[Interface]
-PrivateKey = WCCQic09ih+u/Xr1v4FXDtXKpzgx9JLr59hRo2hX3E=
-Address = 10.0.8.3/24
-DNS = 114.114.114.114
-
-
-[Peer]
-PublicKey = H1QI7lFziAopeQfMm61ZMSNvxJeus1KGXZMKw/uoCY=
-PresharedKey = l/B0jMWfDqpYD2UrK1H0uNlv4/qpthtPtLvt/QIDU8=
-AllowedIPs = 0.0.0.0/0,::/0
-PersistentKeepalive = 25
-Endpoint = xxx.yyy.com:51820
-```
-
-## 创作不易，欢迎打赏
-
-<img src="https://gitee.com/dcssn_weiangongsi/windows-wireguard-watchdog/raw/master/img/wechat-payment-code.jpg" style="width:200px" />
-<img src="https://gitee.com/dcssn_weiangongsi/windows-wireguard-watchdog/raw/master/img/ali-payment-code.jpg" style="width:200px" />
-
-1分钱就可以
