@@ -3,7 +3,7 @@ $WireguardConfigFilePath = "C:\Users\admin\Desktop\company.conf"
 # 检查IP变更时间间隔
 $IntervalSeconds = 10
 # DNS服务器地址,不设置会从 wireguard 配置文件中读取
-$DNS = "dns9.hichina.com"
+# $DNS = "dns9.hichina.com"
 
 # 通过文件路径获取文件名（不包含扩展名）
 function getFilenameByPath {
