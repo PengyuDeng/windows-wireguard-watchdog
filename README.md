@@ -24,7 +24,7 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 1. 修改脚本中的Wireguard 以下几项配置
 	```powershell
 	# wireguard 配置文件
-	$WireguardConfigFilePath = "C:\Users\admin\Desktop\company.conf" 
+	$WireguardConfigFilePath = "D:\windows-wireguard-watchdog\company.conf" 
 	# 检查IP变更时间间隔，秒
 	$IntervalSeconds = 10
 	# DNS服务器地址,不设置会从 wireguard 配置文件中读取DNS参数。我的域名是阿里的，dns9.hichina.com是阿里分配DNS服务器（阿里后台域名解析设置页面能看到这个地址），能立即检测到域名解析的ip变更
@@ -33,13 +33,13 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 	
 2. 用powershell终端管理员执行
 	```shell
-	.\nssm.exe install MyWireGuardService "powershell.exe" "-ExecutionPolicy Bypass -File C:\Users\admin\Desktop\keep_wireguard_alive.ps1"
+	D:\windows-wireguard-watchdog\nssm.exe install MyWireGuardService "powershell.exe" "-ExecutionPolicy Bypass -File D:\windows-wireguard-watchdog\keep_wireguard_alive.ps1"
 	```
 	替换 `C:\Users\admin\Desktop\keep_wireguard_alive.ps1` 为你自己的脚本文件路径。
 	
 3. 启动服务
 	```shell
-	.\nssm.exe start MyWireGuardService
+	D:\windows-wireguard-watchdog\nssm.exe start MyWireGuardService
 	```
    现在脚本就作为Windows服务运行了，电脑重启开机Wiregurd会自动连接。你可以打开Wireguard的UI查看日志，任务管理器查看Wireguard的进程。
    
@@ -48,13 +48,13 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 停止服务
 
 ```shell
-.\nssm.exe stop MyWireGuardService
+D:\windows-wireguard-watchdog\nssm.exe stop MyWireGuardService
 ```
 
 移除服务
 
 ```shell
-.\nssm.exe remove MyWireGuardService
+D:\windows-wireguard-watchdog\nssm.exe remove MyWireGuardService
 ```
 
 ## 停止Wireguard服务
