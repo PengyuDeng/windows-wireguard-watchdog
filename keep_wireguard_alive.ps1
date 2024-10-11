@@ -1,7 +1,7 @@
 # wireguard 配置文件
 $WireguardConfigFilePath = "C:\windows-wireguard-watchdog\my.conf" 
 # 检查IP变更时间间隔
-$IntervalSeconds = 30
+$IntervalSeconds = 60
 
 # 通过文件路径获取文件名（不包含扩展名）
 function getFilenameByPath {
