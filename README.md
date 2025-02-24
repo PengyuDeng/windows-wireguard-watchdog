@@ -21,9 +21,9 @@ Wireguard不会用我们配置的DNS获取IP，我们通过配置的DNS检测到
 
 让脚本以Windows服务方式运行 :
 
-1. 把Windows-Wireguard-Watchdog放在C盘根路径下
+1. 把Windows-Wireguard-Watchdog克隆至C盘根路径下
 
-2. 把Wireguard配置文件名改为my.conf
+2. 把Wireguard配置文件名重命名为my.conf后放置在Windows-Wireguard-Watchdog目录下
 
 3. 用powershell终端管理员执行
 
